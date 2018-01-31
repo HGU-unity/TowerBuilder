@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 public class TowerBuilder : MonoBehaviour
 {
@@ -20,4 +21,13 @@ public class TowerBuilder : MonoBehaviour
         floor3.transform.localPosition = new Vector3(0, height*2, 0);
         floor3.transform.localScale = new Vector3(width*0.81f, height, width*0.81f);
     }
+	
+	[ContextMenu("Destory All Children")]
+	void DestroyAllChildren()
+	{
+		foreach (Transform t in transform.Cast<Transform>().ToArray())
+		{
+			DestroyImmediate(t.gameObject);
+		}
+	}
 }
