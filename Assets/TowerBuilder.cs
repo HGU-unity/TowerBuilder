@@ -9,6 +9,8 @@ public class TowerBuilder : MonoBehaviour
     [ContextMenu("Build")]
     void Build()
     {
+        DestroyAllChildren();
+
         var floor1 = Instantiate(cubePrefab, GetComponent<Transform>());
         floor1.transform.localPosition = new Vector3(0, 0, 0);
         floor1.transform.localScale = new Vector3(width, height, width);
